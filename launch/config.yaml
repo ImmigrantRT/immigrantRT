@@ -1,0 +1,44 @@
+timeout: 120  # experiment duration in seconds
+
+user: bkao2 # $USER on the remote nodes
+cpuaffinity: 2 # number of cpus for containers
+cpuaffinity_folder: /mydata #set cpu affinity path. default(leave this empty): /sys/fs/cgroup
+do_control: 1
+do_migration: 1
+do_requirement: 1
+
+monitor:
+  ping:
+    frequency: 1 # per second
+  throughput:
+    frequency: 0.2
+  data_collection:
+    sleep: 5
+    frequency: 0.2 # per second
+
+misc:
+  aggregation:
+    sleep: 0.5
+    frequency: 1
+
+prediction:
+  arima:
+    sleep: 10
+    frequency: 0.1
+    forecasts: 10 # number of forecasts generated using ARIMA
+  curve_fitting:
+    samples: 20 # size of training data
+    prediction_time: 2 # seconds (after the last training sample)
+
+analysis:
+  ranking:
+    sleep: 20
+    frequency: 0.1
+  trigger:
+    frequency: 1
+
+migration:
+  sleep: 25 # time after which migration decision making starts
+  pre_checkpoint:
+    sleep: 10
+    frequency: 0.1

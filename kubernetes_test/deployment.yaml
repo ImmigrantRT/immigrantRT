@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rtapps-image
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: rtapps
+        image: kaobinchou/rtapps-image:latest  # Replace with your Docker image name
+        ports:
+        - containerPort: 4000
+        securityContext:
+          privileged: true

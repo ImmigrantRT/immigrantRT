@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      nodeName: node2.demo1.rtcontainer-pg0.wisc.cloudlab.us
+      containers:
+      - name: ocl
+        image: kaobinchou/open-close-lighting-control:latest  # Replace with your Docker image name
+        ports:
+        - containerPort: 3003
+        securityContext:
+          privileged: true

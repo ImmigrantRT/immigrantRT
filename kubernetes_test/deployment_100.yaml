@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rtapps-image
+spec:
+  replicas: 100
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      nodeName: node2.demo1.rtcontainer-pg0.wisc.cloudlab.us
+      containers:
+      - name: rtapps
+        image: kaobinchou/rtapps-image:latest  # Replace with your Docker image name
+        securityContext:
+          privileged: true

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openface-avi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      nodeName: node2.demo1.rtcontainer-pg0.wisc.cloudlab.us
+      containers:
+      - name: openface
+        image: kaobinchou/openface_avi:latest  # Replace with your Docker image name
+        securityContext:
+          privileged: true
