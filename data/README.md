@@ -27,6 +27,7 @@
 |	|
 |	├── self
 |	|	├── forecasts.csv
+|	|	├── QoS.csv
 |	|	├── stats_processed.csv
 |	|	├── stats_tail.csv
 |	|	└── stats.txt
@@ -96,6 +97,11 @@
 		...
 		[container id C],[crit level C]
 		```
+
+* `QoS.csv`
+  	- raw data of container QoS
+  	- format: each line has
+  		- seconds from beginning of the framework, Container id, QoS value
 
 * `stats.txt`
 	- raw data recorded by the monitor
